@@ -2,21 +2,21 @@ const { ethers } = require("hardhat");
 require("dotenv").config({ path: ".env" });
 
 async function main() {
-  // URL from where we can extract the metadata for a LW3Punks
+  // URL from where we can extract the metadata for a GameNFT
   const metadataURL = "ipfs://QmR3ZPLr5vZsze3www9hR88vfszC5eVNjokF1vPFm1URqf/";
   /*
   A ContractFactory in ethers.js is an abstraction used to deploy new smart contracts,
-  so lw3PunksContract here is a factory for instances of our LW3Punks contract.
+  so lGameNFTContract here is a factory for instances of our GameNFT contract.
   */
-  const lw3PunksContract = await ethers.getContractFactory("LW3Punks");
+  const GameNFTContract = await ethers.getContractFactory("GameNFT");
 
   // deploy the contract
-  const deployedLW3PunksContract = await lw3PunksContract.deploy(metadataURL);
+  const deployedGameNFTContract = await GameNFTContract.deploy(metadataURL);
 
-  await deployedLW3PunksContract.deployed();
+  await deployedGameNFTContract.deployed();
 
   // print the address of the deployed contract
-  console.log("LW3Punks Contract Address:", deployedLW3PunksContract.address);
+  console.log("GameNFT Contract Address:", deployedGameNFTContract.address);
 }
 
 // Call the main function and catch if there is any error
